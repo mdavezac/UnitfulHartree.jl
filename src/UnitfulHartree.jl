@@ -16,7 +16,6 @@ using Unitful: @unit, upreferred, @u_str, ħ, c, dimension, basefactors
 @unit μ_b  "μ_b" BohrMagneton upreferred(e₀*ħ/(2mₑ)) false
 
 
-
 # Some gymnastics required here because if we precompile, we cannot add to
 # Unitful.basefactors at compile time and expect the changes to persist to runtime.
 const localunits = Unitful.basefactors
