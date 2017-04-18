@@ -3,9 +3,6 @@ module UnitfulHartree
 using Unitful
 import Unitful
 
-Unitful.@dimension 𝐄 "𝐄" Electron # \mbfE
-Unitful.@refunit 𝐞 "𝐞" Electronish 𝐄 false # \mbfe
-
 @unit mₑ "mₑ" ElectronMass 9.1093835611e-31*u"kg" false
 @unit e₀ "eₒ" ElementaryCharge 1.602176620898e-19*u"C" false
 @unit kₑ "kₑ" CoulombForceConstant 8.9875517873681e9*u"kg*m^3*s^-2*C^-2" false
@@ -22,8 +19,6 @@ const μ_b = e₀*ħ/(2mₑ)
 # Some gymnastics required here because if we precompile, we cannot add to
 # Unitful.basefactors at compile time and expect the changes to persist to runtime.
 const localunits = Unitful.basefactors
-const localpromotion = Unitful.promotion
-merge!(Unitful.promotion, localpromotion)
 function __init__()
     merge!(Unitful.basefactors, localunits)
     Unitful.register(UnitfulHartree)
