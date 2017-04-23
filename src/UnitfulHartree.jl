@@ -14,6 +14,7 @@ import Unitful
 const α = 1e₀^2*1kₑ/(1Unitful.c*ħ)
 const mₚ = 1836.15mₑ
 const μ_b = e₀*ħ/(2mₑ)
+const ϵ₀ = Unitful.ϵ0
 
 
 # Some gymnastics required here because if we precompile, we cannot add to
